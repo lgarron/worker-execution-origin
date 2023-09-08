@@ -38,22 +38,22 @@ await assertException(async () => testWorker("cross origin", [
 // Cross-origin, inheriting origin
 assertString(await testWorker("cross origin", [
   "http://cross-origin.localhost:8080/classic-worker.js",
-  { executionOrigin: "inherit-origin" }
+  { executionOrigin: "from-calling-script" }
 ]), "cross origin but it's classic");
 
 assertString(await testWorker("cross origin", [
   "http://cross-origin.localhost:8080/module-worker.js",
-  { type: "module", executionOrigin: "inherit-origin" }
+  { type: "module", executionOrigin: "from-calling-script" }
 ]), "cross origin but it's a module");
 
 // Cross-origin, inheriting origin but with mismatched `type`
 await assertException(async () => testWorker("cross origin", [
   "http://cross-origin.localhost:8080/classic-worker.js",
-  { type: "module", executionOrigin: "inherit-origin"  }
+  { type: "module", executionOrigin: "from-calling-script"  }
 ]), ErrorEvent);
 await assertException(async () => testWorker("cross origin", [
   "http://cross-origin.localhost:8080/module-worker.js",
-  { executionOrigin: "inherit-origin" }
+  { executionOrigin: "from-calling-script" }
 ]), ErrorEvent);
 
 showPassedAllTests();

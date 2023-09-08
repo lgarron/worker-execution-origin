@@ -4,7 +4,7 @@ declare class WorkerExecutionOriginPolyfill extends Worker {
     options?: {
       type?: "classic" | "module";
       credentials?: "omit" | "same-origin" | "include";
-      executionOrigin?: "url-origin" | "inherit-origin";
+      executionOrigin?: "from-url" | "from-calling-script";
     },
   );
 }

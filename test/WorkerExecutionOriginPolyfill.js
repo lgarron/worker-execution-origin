@@ -21,7 +21,7 @@ export class WorkerExecutionOriginPolyfill extends Worker {
     url,
     options,
   ) {
-    if (options?.executionOrigin === "inherit-origin") {
+    if (options?.executionOrigin === "from-calling-script") {
       url = sameOriginURL(url, options?.type);
     }
     super(url, options);
