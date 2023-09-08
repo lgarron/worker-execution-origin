@@ -26,14 +26,15 @@ assertString(await testWorker("same origin", [
 ]), "same origin but it's a module");
 
 // Cross-origin without inheriting origin
+const expectedExceptionConstructor = navigator.userAgent.includes("Firefox") ? Event : DOMException; // TODO: is this specced?
 await assertException(async () => testWorker("cross origin", [
   "http://cross-origin.localhost:8080/classic-worker.js",
   {}
-]), DOMException);
+]), expectedExceptionConstructor);
 await assertException(async () => testWorker("cross origin", [
   "http://cross-origin.localhost:8080/module-worker.js",
   { type: "module" }
-]), DOMException);
+]), expectedExceptionConstructor);
 
 // Cross-origin, inheriting origin
 assertString(await testWorker("cross origin", [

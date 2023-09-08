@@ -1,11 +1,11 @@
 export let passedAllTests = true;
 
 let i = 0;
-function showResult(consoleFn, resultMessage) {
-  consoleFn(resultMessage);
+function showResult(consoleFn, ...resultMessage) {
+  consoleFn(...resultMessage);
   const li = globalThis.document?.querySelector("#results").children[i++];
   if (li) {
-    li.textContent = resultMessage;
+    li.textContent = resultMessage.join(" ");
   }
 }
 
@@ -23,7 +23,7 @@ export async function assertException(fn, expectedConstructor) {
     passedAllTests = false;
   } catch (e) {
     if (! (e instanceof expectedConstructor)) {
-      showResult(console.error, `❌ Expected a \`${expectedConstructor.name}\` error, observed exception: ${e}`);
+      showResult(console.error, `❌ Expected a \`${expectedConstructor.name}\` error, observed exception:`, e);
       passedAllTests = false;
     }
     showResult(console.log, `✅ Exception matches expected constructor: ${expectedConstructor.name}`);
