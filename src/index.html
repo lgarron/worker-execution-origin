@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf8">
+  <title></title>
+  <!-- From: https://github.com/lgarron/minimal-html-style (v1.0.0) -->
+  <meta name="viewport" content="width=device-width, initial-scale=0.75">
+  <link rel="stylesheet" href="./index.css">
+  <script src="index.js" type="module"></script>
+</head>
+
+<body>
+  <h1>Worker <code>executionOrigin</code> tests</h1>
+  <p>Note:
+  <ul>
+    <li>The code currently assumes that subdomains of <code>localhost</code> resolve to <code>localhost</code>. This is
+      the case in Chrome and Firefox but not Safari. Add the following line to your <code>/etc/hosts</code> file to test
+      in Safari:
+      <ul>
+        <li><code>127.0.0.1 cross-origin.localhost</code></li>
+      </ul>
+    </li>
+    <li>The code intentionally tries to load workers using the incorrect <code>type</code>. This results in error
+      messages
+      in the console that are not part of the test.</li>
+  </ul>
+  </p>
+
+  <h2>Test Results</h2>
+  <ul id="results">
+    <li>⏳ …</li>
+    <li>⏳ …</li>
+    <li>⏳ …</li>
+    <li>⏳ …</li>
+    <li>⏳ …</li>
+    <li>⏳ …</li>
+    <li>⏳ …</li>
+    <li>⏳ …</li>
+  </ul>
+
+  <h3>Passed all tests?</h3>
+  <span id="passed-all-tests">⏳ PENDING</span>
+
+</body>
+
+</html>
