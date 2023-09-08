@@ -21,9 +21,10 @@
         <li><code>127.0.0.1 cross-origin.localhost</code></li>
       </ul>
     </li>
-    <li>The code intentionally tries to load workers using the incorrect <code>type</code>. This results in error
-      messages
-      in the console that are not part of the test.</li>
+    <li>The code intentionally tries to load workers using a mismatched worker
+      <code>type</code>. In some browsers, this results in error messages in the
+      console that do not correspond to test failures.
+    </li>
   </ul>
   </p>
 
