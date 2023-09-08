@@ -103,7 +103,7 @@ importScripts(QUOTED_URL); // replace QUOTED_URL with the value from above
 
 Note that it's not necessary for a browser to literally follow these steps, as long as semantically equivalent steps are substituted.
 
-[^2]: While a URL can't contain double quotes, note that it can contain single quotes, and a string value of `url` could contain single quotes. Expressed in JavaScript, safe ways to do this include `QUOTED_URL = JSON.stringify(url.toString());` or `QUOTED_URL = \`"${new URL(url)}"\`;`.
+[^2]: While a URL can't contain double quotes, note that it can contain single quotes, and a string value of `url` could contain single quotes. Expressed in JavaScript, safe ways to do this include `QUOTED_URL = JSON.stringify(url.toString());` or ``QUOTED_URL = `"${new URL(url)}"`;``.
 
 ## Polyfill
 
@@ -127,3 +127,4 @@ See:
 ## Tests
 
 Run `make serve` in this repo and open `http://localhost:8080`.
+# worker-execution-origin
